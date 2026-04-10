@@ -1,0 +1,1 @@
+Here we are adding beans using annotations instead of using just configuration with @Bean bean returned

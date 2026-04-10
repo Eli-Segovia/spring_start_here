@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.segovia.tutorials</groupId>
-    <artifactId>spring_start_here_ch2_step1</artifactId>
+    <artifactId>spring_start_here_ch2_step2_adding_multiple_of_the_same_bean_type</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
