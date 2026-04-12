@@ -1,7 +1,7 @@
-package com.segovia.tutorials.spring_start_here_ch2_step3.main;
+package com.segovia.tutorials.spring_start_here_ch2_step5.main;
 
-import com.segovia.tutorials.spring_start_here_ch2_step3.beans.Parrot;
-import com.segovia.tutorials.spring_start_here_ch2_step3.configuration.ProjectConfiguration;
+import com.segovia.tutorials.spring_start_here_ch2_step5.beans.Parrot;
+import com.segovia.tutorials.spring_start_here_ch2_step5.configuration.ProjectConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

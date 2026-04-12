@@ -1,4 +1,4 @@
-package com.segovia.tutorials.spring_start_here_ch2_step3.context;
+package com.segovia.tutorials.spring_start_here_ch2_step5.context;
 
 import org.junit.Test;
 
