@@ -5,8 +5,8 @@ import com.segovia.tutorials.ch4_using_abstractions.services.repositories.proxie
 import com.segovia.tutorials.ch4_using_abstractions.services.repositories.repositories.CommentRepository;
 
 public class CommentService {
-    private CommentRepository commentRepository;
-    private CommentNotificationProxy notificationProxy;
+    private final CommentRepository commentRepository;
+    private final CommentNotificationProxy notificationProxy;
 
     public CommentService(CommentRepository commentRepository, CommentNotificationProxy notificationProxy) {
         this.commentRepository = commentRepository;
