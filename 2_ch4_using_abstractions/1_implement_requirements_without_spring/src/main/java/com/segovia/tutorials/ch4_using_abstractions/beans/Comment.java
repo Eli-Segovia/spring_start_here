@@ -1,4 +1,4 @@
-package com.segovia.tutorials.ch4_using_abstractions.services.repositories.beans;
+package com.segovia.tutorials.ch4_using_abstractions.beans;
 
 public class Comment {
     private String author;

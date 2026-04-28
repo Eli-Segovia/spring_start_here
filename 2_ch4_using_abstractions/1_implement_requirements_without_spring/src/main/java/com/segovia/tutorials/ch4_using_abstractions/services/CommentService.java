@@ -1,8 +1,8 @@
-package com.segovia.tutorials.ch4_using_abstractions.services.repositories.services;
+package com.segovia.tutorials.ch4_using_abstractions.services;
 
-import com.segovia.tutorials.ch4_using_abstractions.services.repositories.beans.Comment;
-import com.segovia.tutorials.ch4_using_abstractions.services.repositories.proxies.CommentNotificationProxy;
-import com.segovia.tutorials.ch4_using_abstractions.services.repositories.repositories.CommentRepository;
+import com.segovia.tutorials.ch4_using_abstractions.beans.Comment;
+import com.segovia.tutorials.ch4_using_abstractions.proxies.CommentNotificationProxy;
+import com.segovia.tutorials.ch4_using_abstractions.repositories.CommentRepository;
 
 public class CommentService {
     private final CommentRepository commentRepository;

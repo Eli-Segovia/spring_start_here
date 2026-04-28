@@ -1,7 +1,9 @@
-package com.segovia.tutorials.ch4_using_abstractions.services.repositories.repositories;
+package com.segovia.tutorials.ch4_using_abstractions.repositories;
 
-import com.segovia.tutorials.ch4_using_abstractions.services.repositories.beans.Comment;
+import com.segovia.tutorials.ch4_using_abstractions.beans.Comment;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DatabaseCommentRepository implements CommentRepository {
     @Override
     public void storeComment(Comment comment) {

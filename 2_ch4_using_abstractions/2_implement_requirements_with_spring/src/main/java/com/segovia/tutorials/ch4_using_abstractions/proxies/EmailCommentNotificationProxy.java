@@ -1,7 +1,9 @@
-package com.segovia.tutorials.ch4_using_abstractions.services.repositories.proxies;
+package com.segovia.tutorials.ch4_using_abstractions.proxies;
 
-import com.segovia.tutorials.ch4_using_abstractions.services.repositories.beans.Comment;
+import com.segovia.tutorials.ch4_using_abstractions.beans.Comment;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EmailCommentNotificationProxy implements CommentNotificationProxy {
 
     @Override
