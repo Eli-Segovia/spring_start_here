@@ -11,10 +11,10 @@ public class LoggingAspect {
 
     private Logger logger = Logger.getLogger(LoggingAspect.class.getName());
 
-    @Around("execution(* services.*.*(..))")
+    @Around("execution(* services.*.*(..))") // this takes in that bullshit pointcut expression
     public void log(ProceedingJoinPoint jointPoint) throws Throwable {
         logger.info("Method will execute");
-        jointPoint.proceed();
+        jointPoint.proceed(); // the jointpoint represents the intercepted method. Proceed actually calls the method.
         logger.info("Method has executed");
     }
 }
