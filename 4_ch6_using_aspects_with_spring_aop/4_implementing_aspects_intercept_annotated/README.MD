@@ -1,51 +1,46 @@
-# Extracting info from intercepted methods
+# Using annotations instead of using the weird ass regex thing
 
-I am going to type these into notes because my stupid intellij just doesn't want to compile. I spent over an hour trying
-to debug it, but it has not been worth the effort.
+You can also use custom annotations to apply the aspects you want to do Here is how you do that:
 
-Here is an example of extracting some information from an intercept method using the bullshit aspect syntax we saw in
-example 2. You can manipulate return type and even arguments.
+## Creating the custom annotation:
+```java
+@Retention(RetentionPolicy.RUNTIME) // done because annotatins are not interpreted at runtime by default. need to tell it
+@Target(ElementType.METHOD) // done because by default annotations can target anything restrictive = more secure
+public @interface ToLog{
+    
+}
+```
+
+and that's it! Now we tell our aspect to find any method with this annotation:
 
 ```java
-
-// here is the og class with its service method we intercept:
-@Service
-public class CommentService{
-    private Logger //wtv logger shit.
-    
-    public String publishComment(Comment comment) {
-        logger.info("logging shit.");
-        return "SUCC";
-    }
-}
-
-
 @Aspect
 public class LoggingAspect {
-    private Logger logger = Logger.getLogger(classNameWtv);
     
-    // remember that ProceedingJointPoint = the abstraction that our Aspect makes to represent our intercepted method.
-    @Arouond("execution(* services.*.*(..))") // more bullshit
-    public Object log (ProceedingJointPoint jointPoint) throws Throwable {
-        String methodName = jointPoint.getSignature().getName(); // we can get the Method name!!!
-        Object [] arguments = jointPoint.getArgs(); // we can get the arguments
-        
-        logger.info("do logging shit with our extracted data");
-        
-        Object returnType = jointPoint.proceed(); // we can capture the returned object
-        
-        return returnType;
+    @Around("@annotation(ToLog)")
+    public Object log(ProceedingJointPoint jointPoint) {
+        // logic
     }
 }
 ```
 
-## Understanding this power
+And Finally, we apply the annotation:
 
-So we can grab the arguments, return type, method name, and probably other shit that
-the book didn't get into.
+```java
+@Service
+public class SomeStupidService{
+    public void method1() {
+        
+    }
+    
+    public void method2() {
+        
+    }
+    @ToLog
+    public void methodWeWantToLog(){
+        
+    }
+}
+```
 
-With just the arugment, return type, and method name, though... We can do some powerful shit:
-
-* change the value of the arguments we send to the real method
-* change the returned value received by the caller
-* You can even change the method behavior completely!
+And our method will log stuff that we define in the aspect code!
