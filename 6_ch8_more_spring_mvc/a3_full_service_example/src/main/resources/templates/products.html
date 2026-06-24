@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+
+    <h1>Products</h1>
+
+    <h2>View Products</h2>
+
+    <table>
+        <tr>
+            <th>PRODUCT NAME</th>
+            <th>PRODUCT PRICE</th>
+        </tr>
+
+        <tr th:each="p: ${products}">      <!-- basically saying: make row for each product. its variable name is "p" -->
+            <td th:text="${p.name}"></td>   <!-- Now we have access to the name and the price for each row. -->
+            <td th:text="${p.price}"></td>
+        </tr>
+    </table>
+
+    <!-- Simple form that sends the POST request with name and price as request parameters-->
+    <!-- Our Java code then gets the params, adds the product to the list, and then returns the updated view. -->
+    <h2>Add a product</h2>
+    <form action="/products" method="post">
+        Name: <input
+            type="text"
+            name="name"><br />
+        Price: <input
+            type="number"
+            step="any"
+            name="price"><br />
+        <button type="submit">Add product</button>
+    </form>
+</body>
+</html>
